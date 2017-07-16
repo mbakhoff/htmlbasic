@@ -202,6 +202,19 @@ See all the elements at: https://developer.mozilla.org/en-US/docs/Web/HTML
 
 # Run the example
 
-Clone this repository and run `mvn jetty:run`. 
+Clone this repository and run `mvn jetty:run`.
+This starts a web server that can serve files from src/main/webapp and can accept data sent using the `<form>` element.
 Open the page: [http://localhost:8080/](http://localhost:8080/).
-You could also bypass the web server and directly open src/main/webapp/index.html in your browser.
+You can also bypass the web server and directly open src/main/webapp/index.html in your browser, but then you won't have any place to send form data.
+
+# Exercise
+
+Change the sample application.
+Create a simple calculator that can add two numbers:
+* add a h1 header that says "Calculator" 
+* add a form with two text inputs and a submit button
+* move the button to a separate line from the text inputs
+* add css so that the h1 and the entire form is at the top of the page, in the middle of the page.
+* increase the empty space above the heading
+* make the form send data to the server. use `/handler` for the form action.
+* data sent to `/handler` is received by the SampleServlet class. change it to accept the two numbers from the form and respond with the result. the server must be running and the form must be opened through the http://localhost:8080/ address.

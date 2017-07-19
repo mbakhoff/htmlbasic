@@ -3,24 +3,24 @@
 HTML (*Hypertext Markup Language*) describes the structure of a web page semantically - it defines *what* the web page contains, but not how it looks.
 Closely related to HTML is CSS (*Cascading Style Sheets*) which define how the page is rendered (layout, appearance).
 
-HTML pages are regular text files that follow the HTML syntax. 
-Each html page contains the *html*, *head* and the *body* element. 
+HTML pages are regular text files that follow the HTML syntax.
+Each html page contains the *html*, *head* and the *body* element.
 The *head* element can contain useful metadata such as page title and links to scripts or css files.
-The *body* element defines the contents of the page. 
+The *body* element defines the contents of the page.
 
-Elements are components of a HTML page consisting of a start tag and an end tag. 
+Elements are components of a HTML page consisting of a start tag and an end tag.
 For example, to create a paragraph, we would use a start tag `<p>`, followed by the content of the paragraph, followed by an end tag `</p>`.
 The text between the angular brackets of the tag is the tag name (`p` for paragraph, `img` for image, `tr` for table row, etc.)
 When an element has no content, then the start tag and end tag can be combined: `<img />`
-Most elements can contain other elements. 
-For example, a paragraph element can contain an image element. 
+Most elements can contain other elements.
+For example, a paragraph element can contain an image element.
 
-Each element can have attributes. 
-Attributes are key-value pairs that can contains extra information for the element. 
+Each element can have attributes.
+Attributes are key-value pairs that can contains extra information for the element.
 For example, an `<img>` tag must contain a *src* attribute, which contains a link to the image that should be displayed.
-The attributes are placed in the start tag of the element: `<img src="some-image.png" />`. 
+The attributes are placed in the start tag of the element: `<img src="some-image.png" />`.
 
-Lets looks at an example: 
+Lets look at an example:
 ```html
 <html lang="en">
 <head>
@@ -77,8 +77,8 @@ This is how it looks like in a browser:
 
 ## Inspect it
 
-Press `F12` to toggle your browser's developer tools. 
-Try to select different elements on the page. 
+Press `F12` to toggle your browser's developer tools.
+Try to select different elements on the page.
 
 * Firefox https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Select_an_element
 * Chrome https://developers.google.com/web/tools/chrome-devtools/inspect-styles/
@@ -89,18 +89,18 @@ The web browser is responsible for rendering html pages.
 It must find a place on the screen for (most) HTML elements.
 The placement of the an element depends on its type (tag name).
 Additionally, the default placement and rendering can be overridden using css rules.
- 
+
 Most elements are displayed using either **block**, **inline** or **none** mode.
-**Inline** elements are rendered left-to-right (placed next to each other). 
+**Inline** elements are rendered left-to-right (placed next to each other).
 Examples of inline elements are `<span>`, `<img>` and `<input>`.
 **Block** elements are rendered top-to-bottom (placed below each other).
 Examples of block elements are `<p>`, `<div>` and `<h1>`.
 Elements with the **none** mode are not rendered on the screen.
-Special rules apply for tables, lists and some other elements.  
+Special rules apply for tables, lists and some other elements.
 
-Another important concept is the box model. 
+Another important concept is the box model.
 In a document, each element is represented as a rectangular box.
-Each box has a margin, border and padding, which can be overriden using css rules. 
+Each box has a margin, border and padding, which can be overriden using css rules.
 
 Please read now: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
 
@@ -109,13 +109,13 @@ Use the `F12` developer tools to inspect the margins and paddings of different e
 # CSS rules 101
 
 CSS rules can be used to change the display mode, paddings, margins, fonts and sizes of elements in the HTML page.
-To apply a rule, a target must first be "selected": 
+To apply a rule, a target must first be "selected":
 
 * Select by element *id* attribute. For example `<div id="sampleId">` can be selected with`#sampleId`.
 * Select by element *class* attribute. For example `<div class="sampleClass1 sampleClass2">` can be selected with`.sampleClass1`.
 
-What's the difference between id and class? 
-An element can have up to one id, which must be unique in the page. 
+What's the difference between id and class?
+An element can have up to one id, which must be unique in the page.
 An element can have several classes which can be shared between different elements.
 
 When a rule is applied to an element, then it's also inherited by all other elements inside that element.
@@ -124,7 +124,7 @@ The child elements can have their own rules that override the rules of their par
 CSS rules must be placed in a separate file and linked from the HTML *head*.
 The simplified format of the file is `selector { rule; }`.
 
-Some examples: 
+Some examples:
 ```css
 .sampleClass1 {
   font-weight: bold;
@@ -148,7 +148,7 @@ Some examples:
 }
 ```
 
-The CSS file must be linked to the page using the link tag: `<link rel="stylesheet" href="styles-file-name.css">` 
+The CSS file must be linked to the page using the link tag: `<link rel="stylesheet" href="styles-file-name.css">`
 
 The main complexity is knowing all the useful css properties that you can override and using them in the right place.
 
@@ -169,7 +169,7 @@ The main complexity is knowing all the useful css properties that you can overri
 | [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) | used to draw a line under, over, or through some text |
 | [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align) | describes how inline content like text is aligned in its parent block element |
 
-See all the properties at: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference 
+See all the properties at: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
 
 # Useful HTML tags
 
@@ -207,14 +207,42 @@ This starts a web server that can serve files from src/main/webapp and can accep
 Open the page: [http://localhost:8080/](http://localhost:8080/).
 You can also bypass the web server and directly open src/main/webapp/index.html in your browser, but then you won't have any place to send form data.
 
+# What a server
+
+A server is a program that responds to requests sent by a browser.
+Each request specifies the *request method*.
+The most popular request methods are *GET* and *POST*.
+Each request also includes the *Request-URI*, for example "/index.html" or "/images/html5.png".
+
+A *GET* request is used to retrieve information from the server.
+For example, the browser will automatically use a *GET* request to fetch the html file when you click a link.
+*GET* should be a "[safe method](https://tools.ietf.org/html/rfc2616#section-9)" - the server should only return the requested data and not cause any side effect.
+
+A *POST* request is used to send data to the server for processing.
+For example, the browser can use *POST* to send the contents of a form to the server.
+
+When the server receives a request, it will do the following:
+* Search for a servlet with a mapping that matches the *Request-URI*.
+  A servlet is a java class (written by you) that can accept a request and generate a response for it.
+* If no servlet is found, then search for a file with the name specified in *Request-URI*.
+
+Each servlet has a mapping which specifies which *Request-URI*s it will respond to.
+The mapping is speficied with the `@WebServlet` annotation.
+For example, a class annotated with `@WebServlet("/handler")` will respond to requests sent to "/handler".
+A class annotated with `@WebServlet("/users/*")` will respond to any requests that start with "/users/".
+
+Each servlet class must extend the *HttpServlet* class.
+To respond to *GET* requests you must override the `doGet` method and for *POST* requests the `doPost` method.
+This repository includes a working example.
+
 # Exercise
 
 Change the sample application.
 Create a simple calculator that can add two numbers:
-* add a h1 header that says "Calculator" 
+* add a h1 header that says "Calculator"
 * add a form with two text inputs and a submit button
 * move the button to a separate line from the text inputs
-* add css so that the h1 and the entire form is at the top of the page, in the middle of the page.
+* add css so that the h1 and the entire form is at the top of the page, in the middle of the page. hint: `margin: auto`
 * increase the empty space above the heading
-* make the form send data to the server. use `/handler` for the form action.
+* make the form *POST* data to the server. use `/handler` for the form action.
 * data sent to `/handler` is received by the SampleServlet class. change it to accept the two numbers from the form and respond with the result. the server must be running and the form must be opened through the http://localhost:8080/ address.

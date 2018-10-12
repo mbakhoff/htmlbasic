@@ -196,7 +196,7 @@ See all the elements at: https://developer.mozilla.org/en-US/docs/Web/HTML
 
 # Pro tips
 
-* avoid hard coded heigth/width sizes in pixels (`width: 100px;`). use percentages instead: `width: 10%;`
+* avoid hard coded height/width sizes in pixels (`width: 100px;`). use percentages instead: `width: 10%;`
 * whitespace is collapsed. usually you should use paddings and margins. use `<br/>` for line breaks, but not for vertical spacing.
 * css is simple, but not easy. don't give up.
 
